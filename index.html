@@ -9,7 +9,10 @@
   <title>Ahmed Alwedyan</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+  rel="stylesheet">
 
   <style>
 
@@ -17,7 +20,7 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
+      font-family:'Poppins',sans-serif;
     }
 
     html{
@@ -46,12 +49,17 @@
     /* ========================= */
 
     nav{
+
       position:fixed;
+
       top:0;
+
       width:100%;
+
       z-index:1000;
 
-      background:rgba(15,23,42,0.75);
+      background:
+      rgba(15,23,42,0.75);
 
       backdrop-filter:blur(14px);
 
@@ -60,15 +68,22 @@
     }
 
     .nav-content{
+
       display:flex;
+
       justify-content:space-between;
+
       align-items:center;
+
       padding:20px 0;
     }
 
     .logo{
+
       font-size:28px;
+
       font-weight:800;
+
       color:#38bdf8;
 
       text-shadow:
@@ -76,14 +91,19 @@
     }
 
     .nav-links{
+
       display:flex;
+
       gap:30px;
     }
 
     .nav-links a{
-      transition:0.3s;
-      font-weight:500;
+
       position:relative;
+
+      transition:0.3s;
+
+      font-weight:500;
     }
 
     .nav-links a::after{
@@ -93,9 +113,11 @@
       position:absolute;
 
       left:0;
+
       bottom:-5px;
 
       width:0%;
+
       height:2px;
 
       background:#38bdf8;
@@ -120,7 +142,9 @@
       min-height:100vh;
 
       display:flex;
+
       align-items:center;
+
       justify-content:center;
 
       text-align:center;
@@ -138,9 +162,11 @@
     .hero img{
 
       width:200px;
+
       height:200px;
 
       border-radius:50%;
+
       object-fit:cover;
 
       border:5px solid #38bdf8;
@@ -164,13 +190,16 @@
     }
 
     .hero h1{
+
       font-size:60px;
+
       margin-bottom:15px;
     }
 
     .hero p{
 
       max-width:850px;
+
       margin:auto;
 
       line-height:2;
@@ -336,6 +365,7 @@
     .card img{
 
       width:100%;
+
       height:230px;
 
       object-fit:cover;
@@ -348,7 +378,7 @@
     }
 
     /* ========================= */
-    /* Certificate Ratio */
+    /* Certification Ratio */
     /* ========================= */
 
     .certification-card img{
@@ -390,7 +420,9 @@
     /* ========================= */
 
     .reviews{
+
       max-width:800px;
+
       margin:auto;
     }
 
@@ -848,6 +880,8 @@
 
       <div class="reviews">
 
+        <!-- Review Form -->
+
         <div class="review-form">
 
           <input
@@ -874,17 +908,17 @@
           rows="5"
           placeholder="Write your feedback..."></textarea>
 
-          <!-- FIXED BUTTON -->
-
           <button
           type="button"
-          onclick="addReview(event)">
+          id="submitReview">
 
             Submit Review
 
           </button>
 
         </div>
+
+        <!-- Reviews List -->
 
         <div
         class="reviews-list"
@@ -914,12 +948,24 @@
   <script>
 
     // =========================
+    // Reviews Elements
+    // =========================
+
+    const submitBtn =
+    document.getElementById(
+    "submitReview");
+
+    const reviewsList =
+    document.getElementById(
+    "reviewsList");
+
+    // =========================
     // Load Reviews
     // =========================
 
-    document.addEventListener(
+    window.addEventListener(
     "DOMContentLoaded",
-    function(){
+    () => {
 
       const savedReviews =
       JSON.parse(
@@ -928,7 +974,7 @@
 
       savedReviews.forEach(review => {
 
-        displayReview(
+        createReviewCard(
           review.name,
           review.rating,
           review.comment
@@ -944,11 +990,9 @@
     // Add Review
     // =========================
 
-    function addReview(event){
-
-      if(event){
-        event.preventDefault();
-      }
+    submitBtn.addEventListener(
+    "click",
+    () => {
 
       const name =
       document.getElementById("name").value
@@ -960,28 +1004,26 @@
       const comment =
       document.getElementById("comment").value;
 
-      if(comment.trim() === "" || rating === ""){
+      // Validation
+
+      if(
+        rating === ""
+        ||
+        comment.trim() === ""
+      ){
 
         alert(
-        "Please fill in the rating and comment.");
+        "Please enter a rating and feedback.");
 
         return;
       }
 
-      const review = {
+      // Create Review
 
-        name:name,
-        rating:rating,
-        comment:comment
-
-      };
-
-      // Show Review
-
-      displayReview(
-        review.name,
-        review.rating,
-        review.comment
+      createReviewCard(
+        name,
+        rating,
+        comment
       );
 
       // Save Review
@@ -991,7 +1033,13 @@
       localStorage.getItem("reviews"))
       || [];
 
-      reviews.push(review);
+      reviews.push({
+
+        name:name,
+        rating:rating,
+        comment:comment
+
+      });
 
       localStorage.setItem(
         "reviews",
@@ -1000,29 +1048,34 @@
 
       // Clear Inputs
 
-      document.getElementById("name").value = "";
+      document.getElementById(
+      "name").value = "";
 
-      document.getElementById("rating").value = "";
+      document.getElementById(
+      "rating").value = "";
 
-      document.getElementById("comment").value = "";
+      document.getElementById(
+      "comment").value = "";
 
-    }
+    });
 
     // =========================
-    // Display Review
+    // Create Review Card
     // =========================
 
-    function displayReview(name, rating, comment){
+    function createReviewCard(
+      name,
+      rating,
+      comment
+    ){
 
-      const reviewsList =
-      document.getElementById("reviewsList");
-
-      const reviewCard =
+      const card =
       document.createElement("div");
 
-      reviewCard.classList.add("review-card");
+      card.className =
+      "review-card";
 
-      reviewCard.innerHTML = `
+      card.innerHTML = `
 
         <h4>${name}</h4>
 
@@ -1036,7 +1089,7 @@
 
       `;
 
-      reviewsList.prepend(reviewCard);
+      reviewsList.prepend(card);
 
     }
 
