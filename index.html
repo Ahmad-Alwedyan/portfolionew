@@ -10,6 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- مكتبة FontAwesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -25,15 +26,25 @@
       scroll-behavior:smooth;
     }
 
+    /* تأثير التمرير والانتقال السلس لتغيير الثيم */
     body{
       background:#0f172a;
       color:white;
       overflow-x:hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    /* ======================================= */
+    /* خصائص الـ Cyber Mode (Light Theme)     */
+    /* ======================================= */
+    body.cyber-light {
+      background: #f8fafc;
+      color: #0f172a;
     }
 
     a{
       text-decoration:none;
-      color:white;
+      color:inherit;
     }
 
     .container{
@@ -43,7 +54,7 @@
     }
 
     /* ========================= */
-    /* شريط تقدم القراءة (New)    */
+    /* شريط تقدم القراءة         */
     /* ========================= */
     .progress-container {
       position: fixed;
@@ -78,7 +89,7 @@
     }
 
     /* ========================= */
-    /* Navbar (Glassmorphism) */
+    /* Navbar (Glassmorphism)    */
     /* ========================= */
 
     nav{
@@ -90,13 +101,22 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      transition: background 0.3s ease, padding 0.3s ease;
+      transition: background 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
     }
 
-    /* تأثير ذكي عند نزول الصفحة */
+    body.cyber-light nav {
+      background: rgba(248, 250, 252, 0.4);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
     nav.scrolled {
       background: rgba(15, 23, 42, 0.75);
       border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    body.cyber-light nav.scrolled {
+      background: rgba(248, 250, 252, 0.85);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.3);
     }
 
     .nav-content{
@@ -121,12 +141,14 @@
     .nav-links{
       display:flex;
       gap:30px;
+      align-items: center;
     }
 
     .nav-links a{
       position:relative;
       transition:0.3s;
       font-weight:500;
+      color: inherit;
     }
 
     .nav-links a::after{
@@ -148,8 +170,24 @@
       color:#38bdf8;
     }
 
+    /* زر تبديل الثيم المضاف */
+    .theme-toggle-btn {
+      background: transparent;
+      border: none;
+      color: inherit;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 5px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.15) rotate(15deg);
+      color: #38bdf8;
+    }
+
     /* ========================= */
-    /* Hero */
+    /* Hero                      */
     /* ========================= */
 
     .hero{
@@ -160,6 +198,11 @@
       text-align:center;
       background: linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.96)), url('cyber-bg.jpg') center/cover;
       padding-top:100px;
+      transition: background 0.4s ease;
+    }
+
+    body.cyber-light .hero {
+      background: linear-gradient(rgba(248,250,252,0.9), rgba(248,250,252,0.95)), url('cyber-bg.jpg') center/cover;
     }
 
     .hero img{
@@ -189,6 +232,11 @@
       line-height:2;
       color:#cbd5e1;
       font-size:18px;
+      transition: color 0.4s ease;
+    }
+
+    body.cyber-light .hero p {
+      color: #475569;
     }
 
     .btn{
@@ -196,7 +244,7 @@
       margin-top:30px;
       padding:15px 35px;
       border-radius:12px;
-      background: rgba(56, 189, 248, 0.2);
+      background: rgba(56, 189, 248, 0.15);
       color: #38bdf8;
       font-weight: 700;
       border: 1px solid rgba(56, 189, 248, 0.4);
@@ -213,8 +261,12 @@
       box-shadow: 0 0 35px rgba(56,189,248,0.7);
     }
 
+    body.cyber-light .btn:hover {
+      color: white;
+    }
+
     /* ========================= */
-    /* Sections */
+    /* Sections                  */
     /* ========================= */
 
     section{
@@ -229,7 +281,7 @@
     }
 
     /* ========================= */
-    /* About */
+    /* About                     */
     /* ========================= */
 
     .about{
@@ -253,14 +305,24 @@
       line-height:2;
       color:#dbeafe;
       font-size:18px;
+      transition: color 0.4s ease;
+    }
+
+    body.cyber-light .about-text {
+      color: #334155;
     }
 
     /* ========================= */
-    /* قسم العدادات التفاعلية الإحصائية (New) */
+    /* قسم العدادات التفاعلية الإحصائية */
     /* ========================= */
     .counters-section {
       background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('cyber-bg.jpg') center/cover fixed;
       padding: 80px 0;
+      transition: background 0.4s ease;
+    }
+
+    body.cyber-light .counters-section {
+      background: linear-gradient(rgba(248, 250, 252, 0.95), rgba(248, 250, 252, 0.95)), url('cyber-bg.jpg') center/cover fixed;
     }
 
     .counters-grid {
@@ -278,7 +340,13 @@
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, background 0.4s ease, border-color 0.4s ease;
+    }
+
+    body.cyber-light .counter-item {
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
     }
 
     .counter-item:hover {
@@ -297,16 +365,26 @@
       font-weight: 800;
       color: white;
       margin-bottom: 10px;
+      transition: color 0.4s ease;
+    }
+
+    body.cyber-light .counter-number {
+      color: #0f172a;
     }
 
     .counter-item p {
       color: #94a3b8;
       font-size: 16px;
       font-weight: 500;
+      transition: color 0.4s ease;
+    }
+
+    body.cyber-light .counter-item p {
+      color: #64748b;
     }
 
     /* ========================= */
-    /* Cards (Glassmorphism) */
+    /* Cards (Glassmorphism)     */
     /* ========================= */
 
     .cards-grid{
@@ -320,13 +398,19 @@
       background: rgba(255, 255, 255, 0.03);
       border-radius:22px;
       overflow:hidden;
-      transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, border-color 0.4s ease;
       border: 1px solid rgba(255, 255, 255, 0.08);
       transform-style:preserve-3d;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       position:relative;
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    body.cyber-light .card {
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
     }
 
     .card::before{
@@ -355,13 +439,17 @@
     }
 
     /* ========================= */
-    /* Certification (Fixed) */
+    /* Certification (Fixed)     */
     /* ========================= */
 
     .card.certification-card {
       transform: none !important;
-      transition: 0.3s ease;
+      transition: 0.3s ease, background 0.4s ease, border-color 0.4s ease;
       background: rgba(255, 255, 255, 0.03);
+    }
+
+    body.cyber-light .card.certification-card {
+      background: rgba(15, 23, 42, 0.02);
     }
 
     .card.certification-card:hover {
@@ -374,7 +462,11 @@
       height:auto;
       object-fit:contain;
       background: rgba(15, 23, 42, 0.6);
-      transition: none !important;
+      transition: background 0.4s ease !important;
+    }
+
+    body.cyber-light .certification-card img {
+      background: rgba(15, 23, 42, 0.05);
     }
 
     .certification-card:hover img {
@@ -399,10 +491,15 @@
     .card-content p{
       color:#cbd5e1;
       line-height:2;
+      transition: color 0.4s ease;
+    }
+
+    body.cyber-light .card-content p {
+      color: #475569;
     }
 
     /* ========================= */
-    /* Contact Section (Glassmorphism) */
+    /* Contact Section           */
     /* ========================= */
 
     .contact-grid {
@@ -421,7 +518,12 @@
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       text-align: center;
-      transition: 0.3s ease;
+      transition: 0.3s ease, background 0.4s ease, border-color 0.4s ease;
+    }
+
+    body.cyber-light .contact-method {
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(15, 23, 42, 0.06);
     }
 
     .contact-method:hover {
@@ -445,10 +547,15 @@
       color: #cbd5e1;
       font-size: 16px;
       word-break: break-all;
+      transition: color 0.4s ease;
+    }
+
+    body.cyber-light .contact-method p {
+      color: #475569;
     }
 
     /* ========================= */
-    /* Reviews (Glassmorphism) */
+    /* Reviews (Glassmorphism)   */
     /* ========================= */
 
     .reviews{
@@ -464,6 +571,12 @@
       border-radius:20px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+
+    body.cyber-light .review-form {
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(15, 23, 42, 0.06);
     }
 
     .review-form input,
@@ -478,7 +591,15 @@
       color:white;
       outline:none;
       font-size:16px;
-      transition: 0.3s;
+      transition: 0.3s, background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    }
+
+    body.cyber-light .review-form input,
+    body.cyber-light .review-form textarea,
+    body.cyber-light .review-form select {
+      background: rgba(255, 255, 255, 0.8);
+      color: #0f172a;
+      border: 1px solid rgba(15, 23, 42, 0.1);
     }
 
     .review-form input:focus,
@@ -486,6 +607,13 @@
     .review-form select:focus{
       border-color: rgba(56, 189, 248, 0.5);
       background: rgba(15, 23, 42, 0.8);
+    }
+
+    body.cyber-light .review-form input:focus,
+    body.cyber-light .review-form textarea:focus,
+    body.cyber-light .review-form select:focus {
+      background: white;
+      border-color: #38bdf8;
     }
 
     .review-form textarea{
@@ -511,6 +639,10 @@
       box-shadow: 0 4px 25px rgba(56, 189, 248, 0.4);
     }
 
+    body.cyber-light .review-form button {
+      color: white;
+    }
+
     .reviews-list{
       margin-top:40px;
       display:flex;
@@ -527,6 +659,12 @@
       border: 1px solid rgba(255, 255, 255, 0.06);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
       animation:fadeIn 0.5s ease;
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+
+    body.cyber-light .review-card {
+      background: rgba(15, 23, 42, 0.02);
+      border: 1px solid rgba(15, 23, 42, 0.06);
     }
 
     .review-card h4{
@@ -544,6 +682,11 @@
     .review-card p{
       color:#e2e8f0;
       line-height:2;
+      transition: color 0.4s ease;
+    }
+
+    body.cyber-light .review-card p {
+      color: #334155;
     }
 
     @keyframes fadeIn{
@@ -552,12 +695,12 @@
     }
 
     /* ========================= */
-    /* زر الصعود للأعلى (New)     */
+    /* زر الصعود للأعلى           */
     /* ========================= */
     .back-to-top {
       position: fixed;
       bottom: 30px;
-      right: -60px; /* مخفي بالبداية خارج الشاشة */
+      right: -60px;
       width: 50px;
       height: 50px;
       background: rgba(56, 189, 248, 0.2);
@@ -577,7 +720,7 @@
     }
 
     .back-to-top.show {
-      right: 30px; /* يظهر بسلاسة عند السكرول */
+      right: 30px;
     }
 
     .back-to-top:hover {
@@ -587,8 +730,12 @@
       box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
     }
 
+    body.cyber-light .back-to-top:hover {
+      color: white;
+    }
+
     /* ========================= */
-    /* Footer */
+    /* Footer                    */
     /* ========================= */
 
     footer{
@@ -598,6 +745,13 @@
       color:#94a3b8;
       margin-top:80px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+      transition: background 0.4s ease;
+    }
+
+    body.cyber-light footer {
+      background: #e2e8f0;
+      color: #475569;
+      border-top: 1px solid rgba(15, 23, 42, 0.05);
     }
 
     .footer-socials {
@@ -613,13 +767,17 @@
       transition: 0.3s ease;
     }
 
+    body.cyber-light .footer-socials a {
+      color: #475569;
+    }
+
     .footer-socials a:hover {
       color: #38bdf8;
       transform: translateY(-3px);
     }
 
     /* ========================= */
-    /* Responsive */
+    /* Responsive                */
     /* ========================= */
 
     @media(max-width:768px){
@@ -634,6 +792,7 @@
 
 <body>
 
+  <!-- شريط تقدم القراءة -->
   <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
   </div>
@@ -648,6 +807,10 @@
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
         <a href="#reviews">Reviews</a>
+        <!-- زر التبديل المضاف (الشمس والقمر السيبراني) -->
+        <button class="theme-toggle-btn" id="themeToggle" title="Toggle Cyber Mode">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
       </div>
     </div>
   </nav>
@@ -681,6 +844,7 @@
     </div>
   </section>
 
+  <!-- قسم العدادات التفاعلي الإحصائي -->
   <section class="counters-section reveal">
     <div class="container counters-grid">
       <div class="counter-item">
@@ -807,6 +971,7 @@
     </div>
   </section>
 
+  <!-- زر الصعود للأعلى -->
   <button class="back-to-top" id="backToTopBtn" title="Go to top">
     <i class="fas fa-arrow-up"></i>
   </button>
@@ -880,7 +1045,21 @@
     }
 
     window.addEventListener("DOMContentLoaded", () => {
-      // تفعيل تأثير الـ 3D للكروت الأساسية
+      // كود التبديل الخاص بالـ Cyber Mode
+      const themeToggleBtn = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+
+      themeToggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("cyber-light");
+        
+        if (document.body.classList.contains("cyber-light")) {
+          themeIcon.className = "fas fa-sun"; // تحويل الأيقونة لشمس عند النمط المضيء
+        } else {
+          themeIcon.className = "fas fa-moon"; // إعادة الأيقونة لقمر عند النمط الداكن
+        }
+      });
+
+      // تفعيل تأثير الـ 3D للكروت
       const cards = document.querySelectorAll(".card:not(.certification-card)");
       cards.forEach(card => {
         card.addEventListener("mousemove", e => {
@@ -894,15 +1073,13 @@
         });
       });
 
-      // كود الجافاسكربت الخاص بظهور الأقسام عند السكرول
+      // ظهور الأقسام والعدادات عند التمرير
       const reveals = document.querySelectorAll(".reveal");
       
       const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
-            
-            // تشغيل عداد الأرقام التفاعلي إذا كان القسم الظاهر هو قسم العدادات
             if(entry.target.classList.contains('counters-section')) {
               startCounters();
             }
@@ -918,25 +1095,21 @@
         revealOnScroll.observe(reveal);
       });
 
-      // دالة لتشغيل حركة العدادات التصاعدية للأرقام
       function startCounters() {
         const counters = document.querySelectorAll('.counter-number');
         counters.forEach(counter => {
-          // تجنب إعادة تشغيل العداد إذا كان قد بدأ بالفعل
           if(counter.classList.contains('counted')) return;
           counter.classList.add('counted');
 
           const updateCount = () => {
             const target = +counter.getAttribute('data-target');
             const count = +counter.innerText;
-            // سرعة الحركة
             const speed = target / 60; 
 
             if (count < target) {
               counter.innerText = Math.ceil(count + speed);
               setTimeout(updateCount, 25);
             } else {
-              // إضافة تلميح مميز بجانب الإحصائيات بعد انتهاء العد
               if(target === 500 || target === 15) {
                 counter.innerText = target + "+";
               } else if(target === 3) {
@@ -950,26 +1123,22 @@
         });
       }
 
-      // مراقبة السكرول لشريط التقدم والقائمة العلوية وزر الصعود
       const navbar = document.getElementById("navbar");
       const backToTopBtn = document.getElementById("backToTopBtn");
       const progressBar = document.getElementById("myBar");
 
       window.onscroll = () => {
-        // 1. تحديث شريط تقدم القراءة
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         progressBar.style.width = scrolled + "%";
 
-        // 2. تحديث مظهر القائمة العلوية الذكية
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
           navbar.classList.add("scrolled");
         } else {
           navbar.classList.remove("scrolled");
         }
 
-        // 3. إظهار أو إخفاء زر الصعود للأعلى
         if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
           backToTopBtn.classList.add("show");
         } else {
@@ -977,7 +1146,6 @@
         }
       };
 
-      // عمل سكرول سلس للأعلى عند ضغط زر الصعود
       backToTopBtn.addEventListener("click", () => {
         window.scrollTo({
           top: 0,
