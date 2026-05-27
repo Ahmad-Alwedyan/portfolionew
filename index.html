@@ -10,6 +10,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- إضافة مكتبة FontAwesome لأيقونات التواصل الاجتماعي -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
 
@@ -45,14 +47,12 @@
     /* Scroll Animation Styles   */
     /* ========================= */
     
-    /* الحالة الابتدائية: القسم مخفي ومزاح للأسفل قليلاً */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    /* الحالة عند ظهور القسم أثناء السكرول */
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
@@ -274,7 +274,7 @@
     }
 
     /* ========================= */
-    /* Certification (Fixed / No Movement) */
+    /* Certification (Fixed) */
     /* ========================= */
 
     .card.certification-card {
@@ -318,6 +318,52 @@
     .card-content p{
       color:#cbd5e1;
       line-height:2;
+    }
+
+    /* ========================= */
+    /* Contact Section (Glassmorphism) */
+    /* ========================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .contact-method {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .contact-method:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.1);
+    }
+
+    .contact-method i {
+      font-size: 40px;
+      color: #38bdf8;
+      margin-bottom: 15px;
+    }
+
+    .contact-method h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .contact-method p {
+      color: #cbd5e1;
+      font-size: 16px;
+      word-break: break-all;
     }
 
     /* ========================= */
@@ -430,11 +476,29 @@
 
     footer{
       background:#020617;
-      padding:30px;
+      padding:40px 20px;
       text-align:center;
       color:#94a3b8;
       margin-top:80px;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    .footer-socials a {
+      font-size: 24px;
+      color: #94a3b8;
+      transition: 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+      color: #38bdf8;
+      transform: translateY(-3px);
     }
 
     /* ========================= */
@@ -461,6 +525,7 @@
         <a href="#courses">Courses</a>
         <a href="#events">Events</a>
         <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
         <a href="#reviews">Reviews</a>
       </div>
     </div>
@@ -561,6 +626,29 @@
     </div>
   </section>
 
+  <!-- ========================= -->
+  <!-- قسم التواصل الجديد المضاف -->
+  <!-- ========================= -->
+  <section id="contact" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Connect With Me</h2>
+      <div class="contact-grid">
+        <!-- كرت الايميل -->
+        <a href="mailto:awedyan838@gmail.com" class="contact-method">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>awedyan838@gmail.com</p>
+        </a>
+        <!-- كرت اللينكد ان -->
+        <a href="https://www.linkedin.com/in/ahmed-alwedyan-26542b2a9" target="_blank" class="contact-method">
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <p>ahmed-alwedyan-26542b2a9</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="reviews" class="reveal">
     <div class="container">
       <h2 class="section-title">Reviews & Feedback</h2>
@@ -584,7 +672,11 @@
   </section>
 
   <footer>
-    © 2026 Ahmed Alwedyan All Rights Reserved
+    <div class="footer-socials">
+      <a href="mailto:awedyan838@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/ahmed-alwedyan-26542b2a9" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <p>© 2026 Ahmed Alwedyan All Rights Reserved</p>
   </footer>
 
   <script type="module">
@@ -647,7 +739,7 @@
       reviewsList.prepend(card);
     }
 
-    // تفعيل تأثير الـ 3D للكروت الأساسية مع استثناء كرت الشهادة
+    // تفعيل تأثير الـ 3D للكروت الأساسية مع استثناء كرت الشهادة وكروت التواصل
     window.addEventListener("DOMContentLoaded", () => {
       const cards = document.querySelectorAll(".card:not(.certification-card)");
       cards.forEach(card => {
@@ -662,23 +754,19 @@
         });
       });
 
-      // ==========================================
       // كود الجافاسكربت الخاص بظهور الأقسام عند السكرول
-      // ==========================================
       const reveals = document.querySelectorAll(".reveal");
       
       const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
-            // خياري: إذا كنت تريد أن يظهر التأثير مرة واحدة فقط ولا يختفي مجدداً عند الصعود للأعلى فافتح التعليق عن السطر التالي:
-            // observer.unobserve(entry.target); 
           } else {
             entry.target.classList.remove("active");
           }
         });
       }, {
-        threshold: 0.15 // يبدأ التأثير عندما يظهر 15% من القسم على الشاشة
+        threshold: 0.15
       });
 
       reveals.forEach(reveal => {
