@@ -521,7 +521,8 @@
 
       color:#38bdf8;
 
-      margin-bottom:10px;
+      margin-bottom:5px;
+      font-size:20px;
     }
 
     .stars{
@@ -597,8 +598,6 @@
 
 <body>
 
-  <!-- Navbar -->
-
   <nav>
 
     <div class="container nav-content">
@@ -620,8 +619,6 @@
     </div>
 
   </nav>
-
-  <!-- Hero -->
 
   <section class="hero">
 
@@ -646,8 +643,6 @@
     </div>
 
   </section>
-
-  <!-- About -->
 
   <section id="about">
 
@@ -688,8 +683,6 @@
     </div>
 
   </section>
-
-  <!-- Courses -->
 
   <section id="courses">
 
@@ -768,8 +761,6 @@
 
   </section>
 
-  <!-- Events -->
-
   <section id="events">
 
     <div class="container">
@@ -820,15 +811,13 @@
 
           </div>
 
-        </div>
+         </div>
 
       </div>
 
     </div>
 
   </section>
-
-  <!-- Certifications -->
 
   <section id="certifications">
 
@@ -868,8 +857,6 @@
 
   </section>
 
-  <!-- Reviews -->
-
   <section id="reviews">
 
     <div class="container">
@@ -879,8 +866,6 @@
       </h2>
 
       <div class="reviews">
-
-        <!-- Review Form -->
 
         <div class="review-form">
 
@@ -918,8 +903,6 @@
 
         </div>
 
-        <!-- Reviews List -->
-
         <div
         class="reviews-list"
         id="reviewsList">
@@ -932,8 +915,6 @@
 
   </section>
 
-  <!-- Footer -->
-
   <footer>
 
     © 2026 Ahmed Alwedyan
@@ -941,156 +922,84 @@
 
   </footer>
 
-  <!-- ========================= -->
-  <!-- JavaScript -->
-  <!-- ========================= -->
-
   <script>
 
     // =========================
     // Reviews Elements
     // =========================
 
-    const submitBtn =
-    document.getElementById(
-    "submitReview");
-
-    const reviewsList =
-    document.getElementById(
-    "reviewsList");
+    const submitBtn = document.getElementById("submitReview");
+    const reviewsList = document.getElementById("reviewsList");
 
     // =========================
     // Load Reviews
     // =========================
 
-    window.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-      const savedReviews =
-      JSON.parse(
-      localStorage.getItem("reviews"))
-      || [];
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
       savedReviews.forEach(review => {
-
         createReviewCard(
           review.name,
           review.rating,
           review.comment
         );
-
       });
 
       activate3D();
-
     });
 
     // =========================
     // Add Review
     // =========================
 
-    submitBtn.addEventListener(
-    "click",
-    () => {
-
-      const name =
-      document.getElementById("name").value
-      || "Anonymous";
-
-      const rating =
-      document.getElementById("rating").value;
-
-      const comment =
-      document.getElementById("comment").value;
+    submitBtn.addEventListener("click", () => {
+      const nameInput = document.getElementById("name").value.trim();
+      const name = nameInput === "" ? "Anonymous" : nameInput;
+      const rating = document.getElementById("rating").value;
+      const comment = document.getElementById("comment").value.trim();
 
       // Validation
-
-      if(
-        rating === ""
-        ||
-        comment.trim() === ""
-      ){
-
-        alert(
-        "Please enter a rating and feedback.");
-
+      if(rating === "" || comment === ""){
+        alert("Please enter a rating and feedback.");
         return;
       }
 
-      // Create Review
+      // Create Review Card
+      createReviewCard(name, rating, comment);
 
-      createReviewCard(
-        name,
-        rating,
-        comment
-      );
-
-      // Save Review
-
-      const reviews =
-      JSON.parse(
-      localStorage.getItem("reviews"))
-      || [];
-
+      // Save Review to LocalStorage
+      const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
       reviews.push({
-
-        name:name,
-        rating:rating,
-        comment:comment
-
+        name: name,
+        rating: rating,
+        comment: comment
       });
 
-      localStorage.setItem(
-        "reviews",
-        JSON.stringify(reviews)
-      );
+      localStorage.setItem("reviews", JSON.stringify(reviews));
 
       // Clear Inputs
-
-      document.getElementById(
-      "name").value = "";
-
-      document.getElementById(
-      "rating").value = "";
-
-      document.getElementById(
-      "comment").value = "";
-
+      document.getElementById("name").value = "";
+      document.getElementById("rating").value = "";
+      document.getElementById("comment").value = "";
     });
 
     // =========================
     // Create Review Card
     // =========================
 
-    function createReviewCard(
-      name,
-      rating,
-      comment
-    ){
-
-      const card =
-      document.createElement("div");
-
-      card.className =
-      "review-card";
+    function createReviewCard(name, rating, comment){
+      const card = document.createElement("div");
+      card.className = "review-card";
 
       card.innerHTML = `
-
         <h4>${name}</h4>
-
-        <div class="stars">
-          ${rating}
-        </div>
-
-        <p>
-          ${comment}
-        </p>
-
+        <div class="stars">${rating}</div>
+        <p>${comment}</p>
       `;
 
+      // prepend تضمن ظهور التعليق الجديد في الأعلى دائماً
       reviewsList.prepend(card);
-
     }
 
     // =========================
@@ -1098,36 +1007,19 @@
     // =========================
 
     function activate3D(){
-
-      const cards =
-      document.querySelectorAll(".card");
+      const cards = document.querySelectorAll(".card");
 
       cards.forEach(card => {
+        card.addEventListener("mousemove", e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
 
-        card.addEventListener(
-        "mousemove",
-        e => {
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
 
-          const rect =
-          card.getBoundingClientRect();
-
-          const x =
-          e.clientX - rect.left;
-
-          const y =
-          e.clientY - rect.top;
-
-          const centerX =
-          rect.width / 2;
-
-          const centerY =
-          rect.height / 2;
-
-          const rotateX =
-          ((y - centerY) / 20);
-
-          const rotateY =
-          ((centerX - x) / 20);
+          const rotateX = ((y - centerY) / 20);
+          const rotateY = ((centerX - x) / 20);
 
           card.style.transform = `
             perspective(1000px)
@@ -1135,24 +1027,17 @@
             rotateY(${rotateY}deg)
             translateY(-10px)
           `;
-
         });
 
-        card.addEventListener(
-        "mouseleave",
-        () => {
-
+        card.addEventListener("mouseleave", () => {
           card.style.transform = `
             perspective(1000px)
             rotateX(0deg)
             rotateY(0deg)
             translateY(0px)
           `;
-
         });
-
       });
-
     }
 
   </script>
