@@ -669,8 +669,6 @@
 
       <div class="cards-grid">
 
-        <!-- SOC -->
-
         <div class="card">
 
           <img
@@ -690,8 +688,6 @@
           </div>
 
         </div>
-
-        <!-- DF -->
 
         <div class="card">
 
@@ -713,8 +709,6 @@
           </div>
 
         </div>
-
-        <!-- Linux -->
 
         <div class="card">
 
@@ -880,8 +874,14 @@
           rows="5"
           placeholder="Write your feedback..."></textarea>
 
-          <button onclick="addReview()">
+          <!-- FIXED BUTTON -->
+
+          <button
+          type="button"
+          onclick="addReview(event)">
+
             Submit Review
+
           </button>
 
         </div>
@@ -914,10 +914,12 @@
   <script>
 
     // =========================
-    // Reviews System
+    // Load Reviews
     // =========================
 
-    window.onload = function(){
+    document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
       const savedReviews =
       JSON.parse(
@@ -936,9 +938,17 @@
 
       activate3D();
 
-    };
+    });
 
-    function addReview(){
+    // =========================
+    // Add Review
+    // =========================
+
+    function addReview(event){
+
+      if(event){
+        event.preventDefault();
+      }
 
       const name =
       document.getElementById("name").value
@@ -998,13 +1008,19 @@
 
     }
 
+    // =========================
+    // Display Review
+    // =========================
+
     function displayReview(name, rating, comment){
+
+      const reviewsList =
+      document.getElementById("reviewsList");
 
       const reviewCard =
       document.createElement("div");
 
-      reviewCard.className =
-      "review-card";
+      reviewCard.classList.add("review-card");
 
       reviewCard.innerHTML = `
 
@@ -1020,9 +1036,7 @@
 
       `;
 
-      document
-      .getElementById("reviewsList")
-      .prepend(reviewCard);
+      reviewsList.prepend(reviewCard);
 
     }
 
@@ -1038,7 +1052,8 @@
       cards.forEach(card => {
 
         card.addEventListener(
-        "mousemove", e => {
+        "mousemove",
+        e => {
 
           const rect =
           card.getBoundingClientRect();
@@ -1071,7 +1086,8 @@
         });
 
         card.addEventListener(
-        "mouseleave", () => {
+        "mouseleave",
+        () => {
 
           card.style.transform = `
             perspective(1000px)
