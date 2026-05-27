@@ -3,7 +3,7 @@
 
 <head>
 
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Ahmed Alwedyan</title>
@@ -41,16 +41,22 @@
       margin:auto;
     }
 
+    /* ========================= */
     /* Navbar */
+    /* ========================= */
 
     nav{
       position:fixed;
-      width:100%;
       top:0;
+      width:100%;
       z-index:1000;
+
       background:rgba(15,23,42,0.75);
+
       backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(255,255,255,0.05);
+
+      border-bottom:
+      1px solid rgba(255,255,255,0.05);
     }
 
     .nav-content{
@@ -64,7 +70,9 @@
       font-size:28px;
       font-weight:800;
       color:#38bdf8;
-      text-shadow:0 0 15px rgba(56,189,248,0.5);
+
+      text-shadow:
+      0 0 15px rgba(56,189,248,0.5);
     }
 
     .nav-links{
@@ -81,12 +89,17 @@
     .nav-links a::after{
 
       content:"";
+
       position:absolute;
+
       left:0;
       bottom:-5px;
+
       width:0%;
       height:2px;
+
       background:#38bdf8;
+
       transition:0.3s;
     }
 
@@ -98,28 +111,40 @@
       color:#38bdf8;
     }
 
+    /* ========================= */
     /* Hero */
+    /* ========================= */
 
     .hero{
+
       min-height:100vh;
+
       display:flex;
       align-items:center;
       justify-content:center;
+
       text-align:center;
 
       background:
-      linear-gradient(rgba(15,23,42,0.88),rgba(15,23,42,0.96)),
-      url('cyber-bg.jpg') center/cover;
+      linear-gradient(
+      rgba(15,23,42,0.88),
+      rgba(15,23,42,0.96)),
+      url('cyber-bg.jpg')
+      center/cover;
 
       padding-top:100px;
     }
 
     .hero img{
+
       width:200px;
       height:200px;
+
       border-radius:50%;
       object-fit:cover;
+
       border:5px solid #38bdf8;
+
       margin-bottom:25px;
 
       transition:0.5s ease;
@@ -136,7 +161,6 @@
 
       box-shadow:
       0 0 70px rgba(56,189,248,0.9);
-
     }
 
     .hero h1{
@@ -145,21 +169,33 @@
     }
 
     .hero p{
+
       max-width:850px;
       margin:auto;
+
       line-height:2;
+
       color:#cbd5e1;
+
       font-size:18px;
     }
 
     .btn{
+
       display:inline-block;
+
       margin-top:30px;
+
       padding:15px 35px;
+
       border-radius:12px;
+
       background:#38bdf8;
+
       color:#0f172a;
+
       font-weight:700;
+
       transition:0.3s;
 
       box-shadow:
@@ -174,34 +210,49 @@
 
       box-shadow:
       0 0 35px rgba(56,189,248,0.7);
-
     }
 
+    /* ========================= */
     /* Sections */
+    /* ========================= */
 
     section{
       padding:100px 0;
     }
 
     .section-title{
+
       text-align:center;
+
       margin-bottom:60px;
+
       font-size:42px;
+
       color:#38bdf8;
     }
 
+    /* ========================= */
     /* About */
+    /* ========================= */
 
     .about{
+
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(300px,1fr));
+
       gap:50px;
+
       align-items:center;
     }
 
     .about img{
+
       width:100%;
+
       border-radius:25px;
+
       transition:0.5s;
     }
 
@@ -210,29 +261,43 @@
     }
 
     .about-text{
+
       line-height:2;
+
       color:#dbeafe;
+
       font-size:18px;
     }
 
+    /* ========================= */
     /* Cards */
+    /* ========================= */
 
     .cards-grid{
+
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(320px,1fr));
+
       gap:30px;
+
       perspective:1000px;
     }
 
     .card{
 
-      background:rgba(30,41,59,0.75);
+      background:
+      rgba(30,41,59,0.75);
+
       border-radius:22px;
+
       overflow:hidden;
 
       transition:0.25s ease;
 
-      border:1px solid rgba(255,255,255,0.08);
+      border:
+      1px solid rgba(255,255,255,0.08);
 
       transform-style:preserve-3d;
 
@@ -246,18 +311,21 @@
       content:"";
 
       position:absolute;
+
       inset:0;
 
       background:
       linear-gradient(
-        135deg,
-        rgba(56,189,248,0.15),
-        transparent,
-        rgba(14,165,233,0.15)
+      135deg,
+      rgba(56,189,248,0.15),
+      transparent,
+      rgba(14,165,233,0.15)
       );
 
       opacity:0;
+
       transition:0.4s;
+
       pointer-events:none;
     }
 
@@ -265,23 +333,11 @@
       opacity:1;
     }
 
-    .card:hover{
-
-      transform:
-      rotateX(6deg)
-      rotateY(-6deg)
-      translateY(-12px)
-      scale(1.02);
-
-      box-shadow:
-      0 20px 45px rgba(0,0,0,0.45),
-      0 0 25px rgba(56,189,248,0.25);
-
-    }
-
     .card img{
+
       width:100%;
       height:230px;
+
       object-fit:cover;
 
       transition:0.5s ease;
@@ -291,34 +347,47 @@
       transform:scale(1.06);
     }
 
+    /* ========================= */
     /* Certificate Ratio */
+    /* ========================= */
 
     .certification-card img{
 
       aspect-ratio:3 / 2;
-      height:auto;
-      object-fit:contain;
-      background:#0f172a;
 
+      height:auto;
+
+      object-fit:contain;
+
+      background:#0f172a;
     }
 
     .card-content{
+
       padding:25px;
+
       transform:translateZ(30px);
     }
 
     .card-content h3{
+
       color:#38bdf8;
+
       margin-bottom:15px;
+
       font-size:24px;
     }
 
     .card-content p{
+
       color:#cbd5e1;
+
       line-height:2;
     }
 
+    /* ========================= */
     /* Reviews */
+    /* ========================= */
 
     .reviews{
       max-width:800px;
@@ -326,10 +395,15 @@
     }
 
     .review-form{
+
       background:#1e293b;
+
       padding:35px;
+
       border-radius:20px;
-      border:1px solid rgba(255,255,255,0.05);
+
+      border:
+      1px solid rgba(255,255,255,0.05);
     }
 
     .review-form input,
@@ -337,13 +411,21 @@
     .review-form select{
 
       width:100%;
+
       padding:15px;
+
       margin-bottom:20px;
+
       border:none;
+
       border-radius:12px;
+
       background:#0f172a;
+
       color:white;
+
       outline:none;
+
       font-size:16px;
     }
 
@@ -352,15 +434,25 @@
     }
 
     .review-form button{
+
       width:100%;
+
       padding:15px;
+
       border:none;
+
       border-radius:12px;
+
       background:#38bdf8;
+
       color:#0f172a;
+
       font-size:18px;
+
       font-weight:700;
+
       cursor:pointer;
+
       transition:0.3s;
     }
 
@@ -369,33 +461,50 @@
     }
 
     .reviews-list{
+
       margin-top:40px;
+
       display:flex;
+
       flex-direction:column;
+
       gap:20px;
     }
 
     .review-card{
+
       background:#1e293b;
+
       padding:25px;
+
       border-radius:18px;
-      border:1px solid rgba(255,255,255,0.05);
+
+      border:
+      1px solid rgba(255,255,255,0.05);
+
       animation:fadeIn 0.5s ease;
     }
 
     .review-card h4{
+
       color:#38bdf8;
+
       margin-bottom:10px;
     }
 
     .stars{
+
       color:gold;
+
       margin-bottom:10px;
+
       font-size:20px;
     }
 
     .review-card p{
+
       color:#e2e8f0;
+
       line-height:2;
     }
 
@@ -413,17 +522,26 @@
 
     }
 
+    /* ========================= */
     /* Footer */
+    /* ========================= */
 
     footer{
+
       background:#020617;
+
       padding:30px;
+
       text-align:center;
+
       color:#94a3b8;
+
       margin-top:80px;
     }
 
+    /* ========================= */
     /* Responsive */
+    /* ========================= */
 
     @media(max-width:768px){
 
@@ -482,9 +600,11 @@
       <h1>Ahmed Alwedyan</h1>
 
       <p>
-        Instructor @ CYS TECH1 | SOC Analyst | Incident Response |
-        Digital Forensics | SIEM (Splunk, ELK, Wazuh) |
-        Blue Team | eCIRv2 | CTF Author | Top 3% THM
+        Instructor @ CYS TECH1 | SOC Analyst |
+        Incident Response | Digital Forensics |
+        SIEM (Splunk, ELK, Wazuh) |
+        Blue Team | eCIRv2 |
+        CTF Author | Top 3% THM
       </p>
 
       <a href="#courses" class="btn">
@@ -507,23 +627,26 @@
 
       <div class="about">
 
-        <img src="YOUR_SECOND_IMAGE.jpg" alt="Ahmed">
+        <img
+        src="YOUR_SECOND_IMAGE.jpg"
+        alt="Ahmed">
 
         <div class="about-text">
 
           <p>
-            Instructor at CYSTECH1 and Junior SOC Analyst
-            with hands-on experience in incident response,
-            digital forensics, and security operations.
+            Instructor at CYSTECH1 and Junior
+            SOC Analyst with hands-on experience
+            in incident response, digital forensics,
+            and security operations.
           </p>
 
           <br>
 
           <p>
             Skilled in SIEM analysis, Linux administration,
-            network security, and CTF-based security challenges.
-            Passionate about threat hunting, investigation,
-            and cybersecurity education.
+            network security, and CTF-based security
+            challenges. Passionate about threat hunting,
+            investigation, and cybersecurity education.
           </p>
 
         </div>
@@ -546,52 +669,67 @@
 
       <div class="cards-grid">
 
+        <!-- SOC -->
+
         <div class="card">
 
-          <img src="soc-course.jpg" alt="SOC Analyst">
+          <img
+          src="soc-course.jpg"
+          alt="SOC Analyst">
 
           <div class="card-content">
 
             <h3>SOC Analyst</h3>
 
             <p>
-              Professional SOC training covering SIEM,
-              alert investigation, incident response,
-              and SOC operations.
+              Professional SOC training covering
+              SIEM, alert investigation,
+              incident response, and SOC operations.
             </p>
 
           </div>
 
         </div>
 
+        <!-- DF -->
+
         <div class="card">
 
-          <img src="forensics-course.jpg" alt="Digital Forensics">
+          <img
+          src="forensics-course.jpg"
+          alt="Digital Forensics">
 
           <div class="card-content">
 
             <h3>Digital Forensics</h3>
 
             <p>
-              Learn memory analysis, disk investigation,
-              log analysis, and digital evidence handling.
+              Learn memory analysis,
+              disk investigation,
+              log analysis,
+              and digital evidence handling.
             </p>
 
           </div>
 
         </div>
 
+        <!-- Linux -->
+
         <div class="card">
 
-          <img src="linux-course.jpg" alt="Linux">
+          <img
+          src="linux-course.jpg"
+          alt="Linux">
 
           <div class="card-content">
 
             <h3>Linux Zero To Root</h3>
 
             <p>
-              Comprehensive Linux training from basics
-              to advanced command-line and server management.
+              Comprehensive Linux training
+              from basics to advanced
+              command-line and server management.
             </p>
 
           </div>
@@ -618,14 +756,17 @@
 
         <div class="card">
 
-          <img src="cysc-event.jpg" alt="CYSC CAMPUS CTF">
+          <img
+          src="cysc-event.jpg"
+          alt="CYSC CAMPUS CTF">
 
           <div class="card-content">
 
             <h3>CYSC CAMPUS CTF</h3>
 
             <p>
-              Organized at Al Hussein Technical University,
+              Organized at Al Hussein
+              Technical University,
               focusing on cybersecurity challenges,
               teamwork, and practical hacking skills.
             </p>
@@ -636,7 +777,9 @@
 
         <div class="card">
 
-          <img src="cryptera-event.jpg" alt="CrypteraNet CTF">
+          <img
+          src="cryptera-event.jpg"
+          alt="CrypteraNet CTF">
 
           <div class="card-content">
 
@@ -644,8 +787,9 @@
 
             <p>
               Organized at Yarmouk University,
-              featuring real-world CTF challenges
-              for cybersecurity enthusiasts.
+              featuring real-world
+              CTF challenges for
+              cybersecurity enthusiasts.
             </p>
 
           </div>
@@ -681,9 +825,10 @@
             <h3>eCIR Certification</h3>
 
             <p>
-              Certified in Incident Response and
-              Cybersecurity Investigation with
-              practical experience in threat analysis
+              Certified in Incident Response
+              and Cybersecurity Investigation
+              with practical experience
+              in threat analysis
               and digital investigations.
             </p>
 
@@ -762,11 +907,15 @@
 
   </footer>
 
+  <!-- ========================= -->
   <!-- JavaScript -->
+  <!-- ========================= -->
 
   <script>
 
-    // Reviews
+    // =========================
+    // Reviews System
+    // =========================
 
     window.onload = function(){
 
@@ -785,6 +934,8 @@
 
       });
 
+      activate3D();
+
     };
 
     function addReview(){
@@ -799,35 +950,50 @@
       const comment =
       document.getElementById("comment").value;
 
-      if(comment === "" || rating === ""){
+      if(comment.trim() === "" || rating === ""){
 
-        alert("Please fill in the rating and comment.");
+        alert(
+        "Please fill in the rating and comment.");
 
         return;
       }
 
-      displayReview(name, rating, comment);
+      const review = {
+
+        name:name,
+        rating:rating,
+        comment:comment
+
+      };
+
+      // Show Review
+
+      displayReview(
+        review.name,
+        review.rating,
+        review.comment
+      );
+
+      // Save Review
 
       const reviews =
       JSON.parse(
       localStorage.getItem("reviews"))
       || [];
 
-      reviews.push({
-
-        name:name,
-        rating:rating,
-        comment:comment
-
-      });
+      reviews.push(review);
 
       localStorage.setItem(
         "reviews",
         JSON.stringify(reviews)
       );
 
+      // Clear Inputs
+
       document.getElementById("name").value = "";
+
       document.getElementById("rating").value = "";
+
       document.getElementById("comment").value = "";
 
     }
@@ -837,7 +1003,8 @@
       const reviewCard =
       document.createElement("div");
 
-      reviewCard.classList.add("review-card");
+      reviewCard.className =
+      "review-card";
 
       reviewCard.innerHTML = `
 
@@ -859,55 +1026,65 @@
 
     }
 
+    // =========================
     // 3D Cards Effect
+    // =========================
 
-    const cards =
-    document.querySelectorAll(".card");
+    function activate3D(){
 
-    cards.forEach(card => {
+      const cards =
+      document.querySelectorAll(".card");
 
-      card.addEventListener("mousemove", e => {
+      cards.forEach(card => {
 
-        const rect =
-        card.getBoundingClientRect();
+        card.addEventListener(
+        "mousemove", e => {
 
-        const x =
-        e.clientX - rect.left;
+          const rect =
+          card.getBoundingClientRect();
 
-        const y =
-        e.clientY - rect.top;
+          const x =
+          e.clientX - rect.left;
 
-        const centerX =
-        rect.width / 2;
+          const y =
+          e.clientY - rect.top;
 
-        const centerY =
-        rect.height / 2;
+          const centerX =
+          rect.width / 2;
 
-        const rotateX =
-        ((y - centerY) / 18);
+          const centerY =
+          rect.height / 2;
 
-        const rotateY =
-        ((centerX - x) / 18);
+          const rotateX =
+          ((y - centerY) / 20);
 
-        card.style.transform = `
-          rotateX(${rotateX}deg)
-          rotateY(${rotateY}deg)
-          translateY(-10px)
-        `;
+          const rotateY =
+          ((centerX - x) / 20);
+
+          card.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+            translateY(-10px)
+          `;
+
+        });
+
+        card.addEventListener(
+        "mouseleave", () => {
+
+          card.style.transform = `
+            perspective(1000px)
+            rotateX(0deg)
+            rotateY(0deg)
+            translateY(0px)
+          `;
+
+        });
 
       });
 
-      card.addEventListener("mouseleave", () => {
-
-        card.style.transform = `
-          rotateX(0deg)
-          rotateY(0deg)
-          translateY(0px)
-        `;
-
-      });
-
-    });
+    }
 
   </script>
 
