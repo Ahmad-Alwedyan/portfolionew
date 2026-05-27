@@ -42,6 +42,23 @@
     }
 
     /* ========================= */
+    /* Scroll Animation Styles   */
+    /* ========================= */
+    
+    /* الحالة الابتدائية: القسم مخفي ومزاح للأسفل قليلاً */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    /* الحالة عند ظهور القسم أثناء السكرول */
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================= */
     /* Navbar (Glassmorphism) */
     /* ========================= */
 
@@ -261,13 +278,13 @@
     /* ========================= */
 
     .card.certification-card {
-      transform: none !important; /* إلغاء حركة الـ 3D تماماً */
+      transform: none !important;
       transition: 0.3s ease;
       background: rgba(255, 255, 255, 0.03);
     }
 
     .card.certification-card:hover {
-      border-color: rgba(56, 189, 248, 0.4); /* تأثير لوني بسيط عند التحويم */
+      border-color: rgba(56, 189, 248, 0.4);
       box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.1);
     }
 
@@ -275,12 +292,12 @@
       aspect-ratio:3 / 2;
       height:auto;
       object-fit:contain;
-      background: rgba(15, 23, 42, 0.6); /* جعل خلفية الصورة متناسقة مع التأثير الزجاجي */
-      transition: none !important; /* منع الصورة من التكبير */
+      background: rgba(15, 23, 42, 0.6);
+      transition: none !important;
     }
 
     .certification-card:hover img {
-      transform: none !important; /* إيقاف التكبير عند الـ hover للشهادة */
+      transform: none !important;
     }
 
     .card-content{
@@ -288,7 +305,6 @@
       transform:translateZ(30px);
     }
 
-    /* إلغاء العمق للشهادة */
     .certification-card .card-content {
       transform: none; 
     }
@@ -461,7 +477,7 @@
     </div>
   </section>
 
-  <section id="about">
+  <section id="about" class="reveal">
     <div class="container">
       <h2 class="section-title">About Me</h2>
       <div class="about">
@@ -479,7 +495,7 @@
     </div>
   </section>
 
-  <section id="courses">
+  <section id="courses" class="reveal">
     <div class="container">
       <h2 class="section-title">My Courses</h2>
       <div class="cards-grid">
@@ -508,7 +524,7 @@
     </div>
   </section>
 
-  <section id="events">
+  <section id="events" class="reveal">
     <div class="container">
       <h2 class="section-title">Organized Events</h2>
       <div class="cards-grid">
@@ -530,7 +546,7 @@
     </div>
   </section>
 
-  <section id="certifications">
+  <section id="certifications" class="reveal">
     <div class="container">
       <h2 class="section-title">Certifications</h2>
       <div class="cards-grid">
@@ -545,7 +561,7 @@
     </div>
   </section>
 
-  <section id="reviews">
+  <section id="reviews" class="reveal">
     <div class="container">
       <h2 class="section-title">Reviews & Feedback</h2>
       <div class="reviews">
@@ -644,6 +660,29 @@
         card.addEventListener("mouseleave", () => {
           card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
         });
+      });
+
+      // ==========================================
+      // كود الجافاسكربت الخاص بظهور الأقسام عند السكرول
+      // ==========================================
+      const reveals = document.querySelectorAll(".reveal");
+      
+      const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            // خياري: إذا كنت تريد أن يظهر التأثير مرة واحدة فقط ولا يختفي مجدداً عند الصعود للأعلى فافتح التعليق عن السطر التالي:
+            // observer.unobserve(entry.target); 
+          } else {
+            entry.target.classList.remove("active");
+          }
+        });
+      }, {
+        threshold: 0.15 // يبدأ التأثير عندما يظهر 15% من القسم على الشاشة
+      });
+
+      reveals.forEach(reveal => {
+        revealOnScroll.observe(reveal);
       });
     });
   </script>
