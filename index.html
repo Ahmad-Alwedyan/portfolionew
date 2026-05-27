@@ -10,7 +10,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- مكتبة FontAwesome للأيقونات -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -140,7 +139,7 @@
 
     .nav-links{
       display:flex;
-      gap:30px;
+      gap:20px;
       align-items: center;
     }
 
@@ -170,7 +169,7 @@
       color:#38bdf8;
     }
 
-    /* زر تبديل الثيم المضاف */
+    /* زر تبديل الثيم */
     .theme-toggle-btn {
       background: transparent;
       border: none;
@@ -391,16 +390,14 @@
       display:grid;
       grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
       gap:30px;
-      perspective:1000px;
     }
 
     .card{
       background: rgba(255, 255, 255, 0.03);
       border-radius:22px;
-      overflow:hidden;
-      transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, border-color 0.4s ease;
+      overflow:hidden; 
+      transition: 0.3s ease, background 0.4s ease, border-color 0.4s ease;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      transform-style:preserve-3d;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       position:relative;
@@ -413,37 +410,36 @@
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
     }
 
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(135deg, rgba(56,189,248,0.15), transparent, rgba(14,165,233,0.15));
-      opacity:0;
-      transition:0.4s;
-      pointer-events:none;
+    .card:hover {
+      transform: translateY(-5px); 
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2), 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     }
 
-    .card:hover::before{
-      opacity:1;
+    .card-img-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
     }
 
     .card img{
       width:100%;
-      height:230px;
-      object-fit:cover;
-      transition:0.5s ease;
+      aspect-ratio: 1.1 / 1;
+      object-fit: cover;    
+      object-position: top center;
+      display: block;
+      transition: 0.5s ease;
     }
 
     .card:hover img{
-      transform:scale(1.06);
+      transform:scale(1.04); 
     }
 
     /* ========================= */
-    /* Certification (Fixed)     */
+    /* Certification             */
     /* ========================= */
 
     .card.certification-card {
-      transform: none !important;
       transition: 0.3s ease, background 0.4s ease, border-color 0.4s ease;
       background: rgba(255, 255, 255, 0.03);
     }
@@ -454,13 +450,13 @@
 
     .card.certification-card:hover {
       border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.1);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2), 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     }
 
     .certification-card img{
-      aspect-ratio:3 / 2;
+      aspect-ratio: 16 / 10; 
       height:auto;
-      object-fit:contain;
+      object-fit:contain; 
       background: rgba(15, 23, 42, 0.6);
       transition: background 0.4s ease !important;
     }
@@ -475,11 +471,6 @@
 
     .card-content{
       padding:25px;
-      transform:translateZ(30px);
-    }
-
-    .certification-card .card-content {
-      transform: none; 
     }
 
     .card-content h3{
@@ -529,7 +520,7 @@
     .contact-method:hover {
       border-color: rgba(56, 189, 248, 0.4);
       transform: translateY(-5px);
-      box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.1);
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.1), 0 8px 32px 0 rgba(56, 189, 248, 0.1);
     }
 
     .contact-method i {
@@ -555,7 +546,7 @@
     }
 
     /* ========================= */
-    /* Reviews (Glassmorphism)   */
+    /* Reviews                   */
     /* ========================= */
 
     .reviews{
@@ -792,7 +783,6 @@
 
 <body>
 
-  <!-- شريط تقدم القراءة -->
   <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
   </div>
@@ -803,11 +793,11 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#courses">Courses</a>
+        <a href="#workshops">Workshops</a>
         <a href="#events">Events</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
         <a href="#reviews">Reviews</a>
-        <!-- زر التبديل المضاف (الشمس والقمر السيبراني) -->
         <button class="theme-toggle-btn" id="themeToggle" title="Toggle Cyber Mode">
           <i class="fas fa-moon" id="themeIcon"></i>
         </button>
@@ -844,7 +834,6 @@
     </div>
   </section>
 
-  <!-- قسم العدادات التفاعلي الإحصائي -->
   <section class="counters-section reveal">
     <div class="container counters-grid">
       <div class="counter-item">
@@ -859,7 +848,7 @@
       </div>
       <div class="counter-item">
         <i class="fas fa-flag"></i>
-        <div class="counter-number" data-target="25">0</div>
+        <div class="counter-number" data-target="15">0</div>
         <p>CTF Challenges Created</p>
       </div>
     </div>
@@ -870,24 +859,65 @@
       <h2 class="section-title">My Courses</h2>
       <div class="cards-grid">
         <div class="card">
-          <img src="soc-course.jpg" alt="SOC Analyst">
+          <div class="card-img-wrapper">
+            <img src="soc-course.jpg" alt="SOC Analyst">
+          </div>
           <div class="card-content">
             <h3>SOC Analyst</h3>
             <p>Professional SOC training covering SIEM, alert investigation, incident response, and SOC operations.</p>
           </div>
         </div>
         <div class="card">
-          <img src="forensics-course.jpg" alt="Digital Forensics">
+          <div class="card-img-wrapper">
+            <img src="forensics-course.jpg" alt="Digital Forensics">
+          </div>
           <div class="card-content">
             <h3>Digital Forensics</h3>
             <p>Learn memory analysis, disk investigation, log analysis, and digital evidence handling.</p>
           </div>
         </div>
         <div class="card">
-          <img src="linux-course.jpg" alt="Linux">
+          <div class="card-img-wrapper">
+            <img src="linux-course.jpg" alt="Linux">
+          </div>
           <div class="card-content">
             <h3>Linux Zero To Root</h3>
             <p>Comprehensive Linux training from basics to advanced command-line and server management.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workshops" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Workshops</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="kali-workshop.jpg" alt="Basic in Kali Linux">
+          </div>
+          <div class="card-content">
+            <h3>Basic in Kali Linux</h3>
+            <p>An introductory, hands-on workshop focused on exploring Kali Linux environment, essential command line skills, and basic open-source security utilities.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="forensics-ctf-workshop.jpg" alt="Digital Forensics CTF">
+          </div>
+          <div class="card-content">
+            <h3>Digital Forensics CTF</h3>
+            <p>An interactive, practical deep dive into breaking down forensic CTF challenges, uncovering hidden artifacts, memory dumps, and log file analysis.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="fundamentals-workshop.jpg" alt="Cybersecurity Fundamentals">
+          </div>
+          <div class="card-content">
+            <h3>Cybersecurity Fundamentals</h3>
+            <p>A comprehensive session covering foundational security principles, defensive architecture models, and core industry methodologies for beginners.</p>
           </div>
         </div>
       </div>
@@ -899,14 +929,54 @@
       <h2 class="section-title">Organized Events</h2>
       <div class="cards-grid">
         <div class="card">
-          <img src="cysc-event.jpg" alt="CYSC CAMPUS CTF">
+          <div class="card-img-wrapper">
+            <img src="tech-forum-event.jpg" alt="Future Tech Careers Forum">
+          </div>
+          <div class="card-content">
+            <h3>Future Tech Careers Forum Keynote</h3>
+            <p>Delivered a keynote speech at Tafila Technical University to over 400+ students. Highlighted CYS TECH1’s journey, showcasing achievements including 10+ training workshops, 20+ courses in Cyber Security, Programming, and AI, 550+ platform users, and 3+ organized CTF competitions.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="cystech1-ctf.jpg" alt="CYSTECH1 CTF 2026">
+          </div>
+          <div class="card-content">
+            <h3>CYSTECH1 CTF 2026</h3>
+            <p>A premier cybersecurity Jeopardy-style CTF event designed to challenge and sharpen skills in penetration testing, reverse engineering, and threat hunting.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="brk-cys-ctf.jpg" alt="BRK-CYS CTF">
+          </div>
+          <div class="card-content">
+            <h3>BRK-CYS CTF</h3>
+            <p>An intensive and competitive Capture The Flag competition focused on real-world defensive engineering, binary analysis, and incident investigation tactics.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="catch-the-hilal.jpg" alt="Catch The Hilal">
+          </div>
+          <div class="card-content">
+            <h3>Catch The Hilal</h3>
+            <p>A specialized community-driven cybersecurity event and CTF challenge celebrating skills development and networking across security domains.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="cysc-event.jpg" alt="CYSC CAMPUS CTF">
+          </div>
           <div class="card-content">
             <h3>CYSC CAMPUS CTF</h3>
             <p>Organized at Al Hussein Technical University, focusing on cybersecurity challenges, teamwork, and practical hacking skills.</p>
           </div>
         </div>
         <div class="card">
-          <img src="cryptera-event.jpg" alt="CrypteraNet CTF">
+          <div class="card-img-wrapper">
+            <img src="cryptera-event.jpg" alt="CrypteraNet CTF">
+          </div>
           <div class="card-content">
             <h3>CrypteraNet CTF</h3>
             <p>Organized at Yarmouk University, featuring real-world CTF challenges for cybersecurity enthusiasts.</p>
@@ -971,7 +1041,6 @@
     </div>
   </section>
 
-  <!-- زر الصعود للأعلى -->
   <button class="back-to-top" id="backToTopBtn" title="Go to top">
     <i class="fas fa-arrow-up"></i>
   </button>
@@ -1045,37 +1114,19 @@
     }
 
     window.addEventListener("DOMContentLoaded", () => {
-      // كود التبديل الخاص بالـ Cyber Mode
       const themeToggleBtn = document.getElementById("themeToggle");
       const themeIcon = document.getElementById("themeIcon");
 
       themeToggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("cyber-light");
-        
         if (document.body.classList.contains("cyber-light")) {
-          themeIcon.className = "fas fa-sun"; // تحويل الأيقونة لشمس عند النمط المضيء
+          themeIcon.className = "fas fa-sun";
         } else {
-          themeIcon.className = "fas fa-moon"; // إعادة الأيقونة لقمر عند النمط الداكن
+          themeIcon.className = "fas fa-moon";
         }
       });
 
-      // تفعيل تأثير الـ 3D للكروت
-      const cards = document.querySelectorAll(".card:not(.certification-card)");
-      cards.forEach(card => {
-        card.addEventListener("mousemove", e => {
-          const rect = card.getBoundingClientRect();
-          const rotateX = ((e.clientY - rect.top - (rect.height / 2)) / 20);
-          const rotateY = (((rect.width / 2) - (e.clientX - rect.left)) / 20);
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-        });
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
-        });
-      });
-
-      // ظهور الأقسام والعدادات عند التمرير
       const reveals = document.querySelectorAll(".reveal");
-      
       const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
