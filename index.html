@@ -9,10 +9,7 @@
   <title>Ahmed Alwedyan</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
-  <link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
 
@@ -45,7 +42,7 @@
     }
 
     /* ========================= */
-    /* Navbar */
+    /* Navbar (Glassmorphism) */
     /* ========================= */
 
     nav{
@@ -53,9 +50,10 @@
       top:0;
       width:100%;
       z-index:1000;
-      background: rgba(15,23,42,0.75);
-      backdrop-filter:blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-content{
@@ -150,16 +148,20 @@
       margin-top:30px;
       padding:15px 35px;
       border-radius:12px;
-      background:#38bdf8;
-      color:#0f172a;
-      font-weight:700;
-      transition:0.3s;
-      box-shadow: 0 0 15px rgba(56,189,248,0.25);
+      background: rgba(56, 189, 248, 0.2);
+      color: #38bdf8;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
 
     .btn:hover{
       transform:translateY(-5px);
-      background:#0ea5e9;
+      background:#38bdf8;
+      color: #0f172a;
       box-shadow: 0 0 35px rgba(56,189,248,0.7);
     }
 
@@ -206,7 +208,7 @@
     }
 
     /* ========================= */
-    /* Cards */
+    /* Cards (Glassmorphism) */
     /* ========================= */
 
     .cards-grid{
@@ -217,14 +219,16 @@
     }
 
     .card{
-      background: rgba(30,41,59,0.75);
+      background: rgba(255, 255, 255, 0.03);
       border-radius:22px;
       overflow:hidden;
-      transition:0.25s ease;
-      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       transform-style:preserve-3d;
-      backdrop-filter:blur(12px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       position:relative;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
 
     .card::before{
@@ -253,19 +257,40 @@
     }
 
     /* ========================= */
-    /* Certification Ratio */
+    /* Certification (Fixed / No Movement) */
     /* ========================= */
+
+    .card.certification-card {
+      transform: none !important; /* إلغاء حركة الـ 3D تماماً */
+      transition: 0.3s ease;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .card.certification-card:hover {
+      border-color: rgba(56, 189, 248, 0.4); /* تأثير لوني بسيط عند التحويم */
+      box-shadow: 0 8px 32px 0 rgba(56, 189, 248, 0.1);
+    }
 
     .certification-card img{
       aspect-ratio:3 / 2;
       height:auto;
       object-fit:contain;
-      background:#0f172a;
+      background: rgba(15, 23, 42, 0.6); /* جعل خلفية الصورة متناسقة مع التأثير الزجاجي */
+      transition: none !important; /* منع الصورة من التكبير */
+    }
+
+    .certification-card:hover img {
+      transform: none !important; /* إيقاف التكبير عند الـ hover للشهادة */
     }
 
     .card-content{
       padding:25px;
       transform:translateZ(30px);
+    }
+
+    /* إلغاء العمق للشهادة */
+    .certification-card .card-content {
+      transform: none; 
     }
 
     .card-content h3{
@@ -280,7 +305,7 @@
     }
 
     /* ========================= */
-    /* Reviews */
+    /* Reviews (Glassmorphism) */
     /* ========================= */
 
     .reviews{
@@ -289,10 +314,13 @@
     }
 
     .review-form{
-      background:#1e293b;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding:35px;
       border-radius:20px;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
     }
 
     .review-form input,
@@ -301,12 +329,20 @@
       width:100%;
       padding:15px;
       margin-bottom:20px;
-      border:none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius:12px;
-      background:#0f172a;
+      background: rgba(15, 23, 42, 0.6);
       color:white;
       outline:none;
       font-size:16px;
+      transition: 0.3s;
+    }
+
+    .review-form input:focus,
+    .review-form textarea:focus,
+    .review-form select:focus{
+      border-color: rgba(56, 189, 248, 0.5);
+      background: rgba(15, 23, 42, 0.8);
     }
 
     .review-form textarea{
@@ -324,10 +360,12 @@
       font-weight:700;
       cursor:pointer;
       transition:0.3s;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
     }
 
     .review-form button:hover{
       background:#0ea5e9;
+      box-shadow: 0 4px 25px rgba(56, 189, 248, 0.4);
     }
 
     .reviews-list{
@@ -338,10 +376,13 @@
     }
 
     .review-card{
-      background:#1e293b;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding:25px;
       border-radius:18px;
-      border: 1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
       animation:fadeIn 0.5s ease;
     }
 
@@ -377,6 +418,7 @@
       text-align:center;
       color:#94a3b8;
       margin-top:80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     /* ========================= */
@@ -533,7 +575,6 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-    // تم التعديل ببيانات مشروعك الحقيقية والنهائية بنجاح 🛠️
     const firebaseConfig = {
       apiKey: "AIzaSyD9yOVnDubPboC5MJ60zpp3-ke-ugrcKUg",
       authDomain: "my-portfolio-a1457.firebaseapp.com",
@@ -545,26 +586,18 @@
       measurementId: "G-0HN9QJ27SF"
     };
 
-    // تهيئة Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
     const reviewsRef = ref(db, "reviews");
 
-    // عناصر الصفحة
     const submitBtn = document.getElementById("submitReview");
     const reviewsList = document.getElementById("reviewsList");
 
-    // =========================
-    // جلب التعليقات فوراً وعرضها لكل الزوار في نفس اللحظة
-    // =========================
     onChildAdded(reviewsRef, (snapshot) => {
       const data = snapshot.val();
       createReviewCard(data.name, data.rating, data.comment);
     });
 
-    // =========================
-    // إرسال تعليق جديد إلى قاعدة البيانات السحابية للكل
-    // =========================
     submitBtn.addEventListener("click", () => {
       const nameInput = document.getElementById("name").value.trim();
       const name = nameInput === "" ? "Anonymous" : nameInput;
@@ -576,20 +609,17 @@
         return;
       }
 
-      // رفع البيانات إلى السيرفر ليراها الجميع
       push(reviewsRef, {
         name: name,
         rating: rating,
         comment: comment
       });
 
-      // تفريغ الحقول بعد الإرسال
       document.getElementById("name").value = "";
       document.getElementById("rating").value = "";
       document.getElementById("comment").value = "";
     });
 
-    // بناء كارت التعليق ديناميكياً
     function createReviewCard(name, rating, comment){
       const card = document.createElement("div");
       card.className = "review-card";
@@ -601,9 +631,9 @@
       reviewsList.prepend(card);
     }
 
-    // تفعيل تأثير الـ 3D للكروت الأساسية عند حركة الماوس
+    // تفعيل تأثير الـ 3D للكروت الأساسية مع استثناء كرت الشهادة
     window.addEventListener("DOMContentLoaded", () => {
-      const cards = document.querySelectorAll(".card");
+      const cards = document.querySelectorAll(".card:not(.certification-card)");
       cards.forEach(card => {
         card.addEventListener("mousemove", e => {
           const rect = card.getBoundingClientRect();
