@@ -10,7 +10,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- إضافة مكتبة FontAwesome لأيقونات التواصل الاجتماعي -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -44,6 +43,26 @@
     }
 
     /* ========================= */
+    /* شريط تقدم القراءة (New)    */
+    /* ========================= */
+    .progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      z-index: 2000;
+      background: transparent;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      width: 0%;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+
+    /* ========================= */
     /* Scroll Animation Styles   */
     /* ========================= */
     
@@ -67,10 +86,17 @@
       top:0;
       width:100%;
       z-index:1000;
-      background: rgba(15, 23, 42, 0.65);
+      background: rgba(15, 23, 42, 0.4);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: background 0.3s ease, padding 0.3s ease;
+    }
+
+    /* تأثير ذكي عند نزول الصفحة */
+    nav.scrolled {
+      background: rgba(15, 23, 42, 0.75);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.2);
     }
 
     .nav-content{
@@ -78,6 +104,11 @@
       justify-content:space-between;
       align-items:center;
       padding:20px 0;
+      transition: padding 0.3s ease;
+    }
+
+    nav.scrolled .nav-content {
+      padding: 12px 0;
     }
 
     .logo{
@@ -222,6 +253,56 @@
       line-height:2;
       color:#dbeafe;
       font-size:18px;
+    }
+
+    /* ========================= */
+    /* قسم العدادات التفاعلية الإحصائية (New) */
+    /* ========================= */
+    .counters-section {
+      background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('cyber-bg.jpg') center/cover fixed;
+      padding: 80px 0;
+    }
+
+    .counters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      text-align: center;
+    }
+
+    .counter-item {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 40px 20px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .counter-item:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .counter-item i {
+      font-size: 35px;
+      color: #38bdf8;
+      margin-bottom: 15px;
+    }
+
+    .counter-number {
+      font-size: 40px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .counter-item p {
+      color: #94a3b8;
+      font-size: 16px;
+      font-weight: 500;
     }
 
     /* ========================= */
@@ -471,6 +552,42 @@
     }
 
     /* ========================= */
+    /* زر الصعود للأعلى (New)     */
+    /* ========================= */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: -60px; /* مخفي بالبداية خارج الشاشة */
+      width: 50px;
+      height: 50px;
+      background: rgba(56, 189, 248, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #38bdf8;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 999;
+      transition: all 0.5s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-to-top.show {
+      right: 30px; /* يظهر بسلاسة عند السكرول */
+    }
+
+    .back-to-top:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+    }
+
+    /* ========================= */
     /* Footer */
     /* ========================= */
 
@@ -517,7 +634,11 @@
 
 <body>
 
-  <nav>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>
+
+  <nav id="navbar">
     <div class="container nav-content">
       <div class="logo">Ahmed Alwedyan</div>
       <div class="nav-links">
@@ -556,6 +677,26 @@
             Skilled in SIEM analysis, Linux administration, network security, and CTF-based security challenges. Passionate about threat hunting, investigation, and cybersecurity education.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="counters-section reveal">
+    <div class="container counters-grid">
+      <div class="counter-item">
+        <i class="fas fa-user-graduate"></i>
+        <div class="counter-number" data-target="500">0</div>
+        <p>Students Trained</p>
+      </div>
+      <div class="counter-item">
+        <i class="fas fa-shield-alt"></i>
+        <div class="counter-number" data-target="3">0</div>
+        <p>Top 3% TryHackMe</p>
+      </div>
+      <div class="counter-item">
+        <i class="fas fa-flag"></i>
+        <div class="counter-number" data-target="15">0</div>
+        <p>CTF Challenges Created</p>
       </div>
     </div>
   </section>
@@ -626,20 +767,15 @@
     </div>
   </section>
 
-  <!-- ========================= -->
-  <!-- قسم التواصل الجديد المضاف -->
-  <!-- ========================= -->
   <section id="contact" class="reveal">
     <div class="container">
       <h2 class="section-title">Connect With Me</h2>
       <div class="contact-grid">
-        <!-- كرت الايميل -->
         <a href="mailto:awedyan838@gmail.com" class="contact-method">
           <i class="fas fa-envelope"></i>
           <h3>Email</h3>
           <p>awedyan838@gmail.com</p>
         </a>
-        <!-- كرت اللينكد ان -->
         <a href="https://www.linkedin.com/in/ahmed-alwedyan-26542b2a9" target="_blank" class="contact-method">
           <i class="fab fa-linkedin"></i>
           <h3>LinkedIn</h3>
@@ -670,6 +806,10 @@
       </div>
     </div>
   </section>
+
+  <button class="back-to-top" id="backToTopBtn" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <footer>
     <div class="footer-socials">
@@ -739,8 +879,8 @@
       reviewsList.prepend(card);
     }
 
-    // تفعيل تأثير الـ 3D للكروت الأساسية مع استثناء كرت الشهادة وكروت التواصل
     window.addEventListener("DOMContentLoaded", () => {
+      // تفعيل تأثير الـ 3D للكروت الأساسية
       const cards = document.querySelectorAll(".card:not(.certification-card)");
       cards.forEach(card => {
         card.addEventListener("mousemove", e => {
@@ -761,6 +901,11 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
+            
+            // تشغيل عداد الأرقام التفاعلي إذا كان القسم الظاهر هو قسم العدادات
+            if(entry.target.classList.contains('counters-section')) {
+              startCounters();
+            }
           } else {
             entry.target.classList.remove("active");
           }
@@ -771,6 +916,73 @@
 
       reveals.forEach(reveal => {
         revealOnScroll.observe(reveal);
+      });
+
+      // دالة لتشغيل حركة العدادات التصاعدية للأرقام
+      function startCounters() {
+        const counters = document.querySelectorAll('.counter-number');
+        counters.forEach(counter => {
+          // تجنب إعادة تشغيل العداد إذا كان قد بدأ بالفعل
+          if(counter.classList.contains('counted')) return;
+          counter.classList.add('counted');
+
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            // سرعة الحركة
+            const speed = target / 60; 
+
+            if (count < target) {
+              counter.innerText = Math.ceil(count + speed);
+              setTimeout(updateCount, 25);
+            } else {
+              // إضافة تلميح مميز بجانب الإحصائيات بعد انتهاء العد
+              if(target === 500 || target === 15) {
+                counter.innerText = target + "+";
+              } else if(target === 3) {
+                counter.innerText = "Top " + target + "%";
+              } else {
+                counter.innerText = target;
+              }
+            }
+          };
+          updateCount();
+        });
+      }
+
+      // مراقبة السكرول لشريط التقدم والقائمة العلوية وزر الصعود
+      const navbar = document.getElementById("navbar");
+      const backToTopBtn = document.getElementById("backToTopBtn");
+      const progressBar = document.getElementById("myBar");
+
+      window.onscroll = () => {
+        // 1. تحديث شريط تقدم القراءة
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+
+        // 2. تحديث مظهر القائمة العلوية الذكية
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+
+        // 3. إظهار أو إخفاء زر الصعود للأعلى
+        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+          backToTopBtn.classList.add("show");
+        } else {
+          backToTopBtn.classList.remove("show");
+        }
+      };
+
+      // عمل سكرول سلس للأعلى عند ضغط زر الصعود
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
       });
     });
   </script>
