@@ -49,79 +49,48 @@
     /* ========================= */
 
     nav{
-
       position:fixed;
-
       top:0;
-
       width:100%;
-
       z-index:1000;
-
-      background:
-      rgba(15,23,42,0.75);
-
+      background: rgba(15,23,42,0.75);
       backdrop-filter:blur(14px);
-
-      border-bottom:
-      1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .nav-content{
-
       display:flex;
-
       justify-content:space-between;
-
       align-items:center;
-
       padding:20px 0;
     }
 
     .logo{
-
       font-size:28px;
-
       font-weight:800;
-
       color:#38bdf8;
-
-      text-shadow:
-      0 0 15px rgba(56,189,248,0.5);
+      text-shadow: 0 0 15px rgba(56,189,248,0.5);
     }
 
     .nav-links{
-
       display:flex;
-
       gap:30px;
     }
 
     .nav-links a{
-
       position:relative;
-
       transition:0.3s;
-
       font-weight:500;
     }
 
     .nav-links a::after{
-
       content:"";
-
       position:absolute;
-
       left:0;
-
       bottom:-5px;
-
       width:0%;
-
       height:2px;
-
       background:#38bdf8;
-
       transition:0.3s;
     }
 
@@ -138,107 +107,60 @@
     /* ========================= */
 
     .hero{
-
       min-height:100vh;
-
       display:flex;
-
       align-items:center;
-
       justify-content:center;
-
       text-align:center;
-
-      background:
-      linear-gradient(
-      rgba(15,23,42,0.88),
-      rgba(15,23,42,0.96)),
-      url('cyber-bg.jpg')
-      center/cover;
-
+      background: linear-gradient(rgba(15,23,42,0.88), rgba(15,23,42,0.96)), url('cyber-bg.jpg') center/cover;
       padding-top:100px;
     }
 
     .hero img{
-
       width:200px;
-
       height:200px;
-
       border-radius:50%;
-
       object-fit:cover;
-
       border:5px solid #38bdf8;
-
       margin-bottom:25px;
-
       transition:0.5s ease;
-
-      box-shadow:
-      0 0 30px rgba(56,189,248,0.5);
+      box-shadow: 0 0 30px rgba(56,189,248,0.5);
     }
 
     .hero img:hover{
-
-      transform:
-      scale(1.06)
-      rotate(2deg);
-
-      box-shadow:
-      0 0 70px rgba(56,189,248,0.9);
+      transform: scale(1.06) rotate(2deg);
+      box-shadow: 0 0 70px rgba(56,189,248,0.9);
     }
 
     .hero h1{
-
       font-size:60px;
-
       margin-bottom:15px;
     }
 
     .hero p{
-
       max-width:850px;
-
       margin:auto;
-
       line-height:2;
-
       color:#cbd5e1;
-
       font-size:18px;
     }
 
     .btn{
-
       display:inline-block;
-
       margin-top:30px;
-
       padding:15px 35px;
-
       border-radius:12px;
-
       background:#38bdf8;
-
       color:#0f172a;
-
       font-weight:700;
-
       transition:0.3s;
-
-      box-shadow:
-      0 0 15px rgba(56,189,248,0.25);
+      box-shadow: 0 0 15px rgba(56,189,248,0.25);
     }
 
     .btn:hover{
-
       transform:translateY(-5px);
-
       background:#0ea5e9;
-
-      box-shadow:
-      0 0 35px rgba(56,189,248,0.7);
+      box-shadow: 0 0 35px rgba(56,189,248,0.7);
     }
 
     /* ========================= */
@@ -250,13 +172,9 @@
     }
 
     .section-title{
-
       text-align:center;
-
       margin-bottom:60px;
-
       font-size:42px;
-
       color:#38bdf8;
     }
 
@@ -265,23 +183,15 @@
     /* ========================= */
 
     .about{
-
       display:grid;
-
-      grid-template-columns:
-      repeat(auto-fit,minmax(300px,1fr));
-
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
       gap:50px;
-
       align-items:center;
     }
 
     .about img{
-
       width:100%;
-
       border-radius:25px;
-
       transition:0.5s;
     }
 
@@ -290,11 +200,8 @@
     }
 
     .about-text{
-
       line-height:2;
-
       color:#dbeafe;
-
       font-size:18px;
     }
 
@@ -303,58 +210,30 @@
     /* ========================= */
 
     .cards-grid{
-
       display:grid;
-
-      grid-template-columns:
-      repeat(auto-fit,minmax(320px,1fr));
-
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
       gap:30px;
-
       perspective:1000px;
     }
 
     .card{
-
-      background:
-      rgba(30,41,59,0.75);
-
+      background: rgba(30,41,59,0.75);
       border-radius:22px;
-
       overflow:hidden;
-
       transition:0.25s ease;
-
-      border:
-      1px solid rgba(255,255,255,0.08);
-
+      border: 1px solid rgba(255,255,255,0.08);
       transform-style:preserve-3d;
-
       backdrop-filter:blur(12px);
-
       position:relative;
     }
 
     .card::before{
-
       content:"";
-
       position:absolute;
-
       inset:0;
-
-      background:
-      linear-gradient(
-      135deg,
-      rgba(56,189,248,0.15),
-      transparent,
-      rgba(14,165,233,0.15)
-      );
-
+      background: linear-gradient(135deg, rgba(56,189,248,0.15), transparent, rgba(14,165,233,0.15));
       opacity:0;
-
       transition:0.4s;
-
       pointer-events:none;
     }
 
@@ -363,13 +242,9 @@
     }
 
     .card img{
-
       width:100%;
-
       height:230px;
-
       object-fit:cover;
-
       transition:0.5s ease;
     }
 
@@ -382,36 +257,25 @@
     /* ========================= */
 
     .certification-card img{
-
       aspect-ratio:3 / 2;
-
       height:auto;
-
       object-fit:contain;
-
       background:#0f172a;
     }
 
     .card-content{
-
       padding:25px;
-
       transform:translateZ(30px);
     }
 
     .card-content h3{
-
       color:#38bdf8;
-
       margin-bottom:15px;
-
       font-size:24px;
     }
 
     .card-content p{
-
       color:#cbd5e1;
-
       line-height:2;
     }
 
@@ -420,44 +284,28 @@
     /* ========================= */
 
     .reviews{
-
       max-width:800px;
-
       margin:auto;
     }
 
     .review-form{
-
       background:#1e293b;
-
       padding:35px;
-
       border-radius:20px;
-
-      border:
-      1px solid rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .review-form input,
     .review-form textarea,
     .review-form select{
-
       width:100%;
-
       padding:15px;
-
       margin-bottom:20px;
-
       border:none;
-
       border-radius:12px;
-
       background:#0f172a;
-
       color:white;
-
       outline:none;
-
       font-size:16px;
     }
 
@@ -466,25 +314,15 @@
     }
 
     .review-form button{
-
       width:100%;
-
       padding:15px;
-
       border:none;
-
       border-radius:12px;
-
       background:#38bdf8;
-
       color:#0f172a;
-
       font-size:18px;
-
       font-weight:700;
-
       cursor:pointer;
-
       transition:0.3s;
     }
 
@@ -493,66 +331,40 @@
     }
 
     .reviews-list{
-
       margin-top:40px;
-
       display:flex;
-
       flex-direction:column;
-
       gap:20px;
     }
 
     .review-card{
-
       background:#1e293b;
-
       padding:25px;
-
       border-radius:18px;
-
-      border:
-      1px solid rgba(255,255,255,0.05);
-
+      border: 1px solid rgba(255,255,255,0.05);
       animation:fadeIn 0.5s ease;
     }
 
     .review-card h4{
-
       color:#38bdf8;
-
       margin-bottom:5px;
       font-size:20px;
     }
 
     .stars{
-
       color:gold;
-
       margin-bottom:10px;
-
       font-size:20px;
     }
 
     .review-card p{
-
       color:#e2e8f0;
-
       line-height:2;
     }
 
     @keyframes fadeIn{
-
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-
+      from{ opacity:0; transform:translateY(10px); }
+      to{ opacity:1; transform:translateY(0); }
     }
 
     /* ========================= */
@@ -560,15 +372,10 @@
     /* ========================= */
 
     footer{
-
       background:#020617;
-
       padding:30px;
-
       text-align:center;
-
       color:#94a3b8;
-
       margin-top:80px;
     }
 
@@ -577,19 +384,9 @@
     /* ========================= */
 
     @media(max-width:768px){
-
-      .hero h1{
-        font-size:38px;
-      }
-
-      .hero p{
-        font-size:15px;
-      }
-
-      .nav-links{
-        display:none;
-      }
-
+      .hero h1{ font-size:38px; }
+      .hero p{ font-size:15px; }
+      .nav-links{ display:none; }
     }
 
   </style>
@@ -599,449 +396,227 @@
 <body>
 
   <nav>
-
     <div class="container nav-content">
-
-      <div class="logo">
-        Ahmed Alwedyan
-      </div>
-
+      <div class="logo">Ahmed Alwedyan</div>
       <div class="nav-links">
-
         <a href="#about">About</a>
         <a href="#courses">Courses</a>
         <a href="#events">Events</a>
         <a href="#certifications">Certifications</a>
         <a href="#reviews">Reviews</a>
-
       </div>
-
     </div>
-
   </nav>
 
   <section class="hero">
-
     <div class="container">
-
       <img src="YOUR_IMAGE.jpg" alt="Ahmed">
-
       <h1>Ahmed Alwedyan</h1>
-
       <p>
-        Instructor @ CYS TECH1 | SOC Analyst |
-        Incident Response | Digital Forensics |
-        SIEM (Splunk, ELK, Wazuh) |
-        Blue Team | eCIRv2 |
-        CTF Author | Top 3% THM
+        Instructor @ CYS TECH1 | SOC Analyst | Incident Response | Digital Forensics | SIEM (Splunk, ELK, Wazuh) | Blue Team | eCIRv2 | CTF Author | Top 3% THM
       </p>
-
-      <a href="#courses" class="btn">
-        Explore My Work
-      </a>
-
+      <a href="#courses" class="btn">Explore My Work</a>
     </div>
-
   </section>
 
   <section id="about">
-
     <div class="container">
-
-      <h2 class="section-title">
-        About Me
-      </h2>
-
+      <h2 class="section-title">About Me</h2>
       <div class="about">
-
-        <img
-        src="YOUR_SECOND_IMAGE.jpg"
-        alt="Ahmed">
-
+        <img src="YOUR_SECOND_IMAGE.jpg" alt="Ahmed">
         <div class="about-text">
-
           <p>
-            Instructor at CYSTECH1 and Junior
-            SOC Analyst with hands-on experience
-            in incident response, digital forensics,
-            and security operations.
+            Instructor at CYSTECH1 and Junior SOC Analyst with hands-on experience in incident response, digital forensics, and security operations.
           </p>
-
           <br>
-
           <p>
-            Skilled in SIEM analysis, Linux administration,
-            network security, and CTF-based security
-            challenges. Passionate about threat hunting,
-            investigation, and cybersecurity education.
+            Skilled in SIEM analysis, Linux administration, network security, and CTF-based security challenges. Passionate about threat hunting, investigation, and cybersecurity education.
           </p>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
 
   <section id="courses">
-
     <div class="container">
-
-      <h2 class="section-title">
-        My Courses
-      </h2>
-
+      <h2 class="section-title">My Courses</h2>
       <div class="cards-grid">
-
         <div class="card">
-
-          <img
-          src="soc-course.jpg"
-          alt="SOC Analyst">
-
+          <img src="soc-course.jpg" alt="SOC Analyst">
           <div class="card-content">
-
             <h3>SOC Analyst</h3>
-
-            <p>
-              Professional SOC training covering
-              SIEM, alert investigation,
-              incident response, and SOC operations.
-            </p>
-
+            <p>Professional SOC training covering SIEM, alert investigation, incident response, and SOC operations.</p>
           </div>
-
         </div>
-
         <div class="card">
-
-          <img
-          src="forensics-course.jpg"
-          alt="Digital Forensics">
-
+          <img src="forensics-course.jpg" alt="Digital Forensics">
           <div class="card-content">
-
             <h3>Digital Forensics</h3>
-
-            <p>
-              Learn memory analysis,
-              disk investigation,
-              log analysis,
-              and digital evidence handling.
-            </p>
-
+            <p>Learn memory analysis, disk investigation, log analysis, and digital evidence handling.</p>
           </div>
-
         </div>
-
         <div class="card">
-
-          <img
-          src="linux-course.jpg"
-          alt="Linux">
-
+          <img src="linux-course.jpg" alt="Linux">
           <div class="card-content">
-
             <h3>Linux Zero To Root</h3>
-
-            <p>
-              Comprehensive Linux training
-              from basics to advanced
-              command-line and server management.
-            </p>
-
+            <p>Comprehensive Linux training from basics to advanced command-line and server management.</p>
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
 
   <section id="events">
-
     <div class="container">
-
-      <h2 class="section-title">
-        Organized Events
-      </h2>
-
+      <h2 class="section-title">Organized Events</h2>
       <div class="cards-grid">
-
         <div class="card">
-
-          <img
-          src="cysc-event.jpg"
-          alt="CYSC CAMPUS CTF">
-
+          <img src="cysc-event.jpg" alt="CYSC CAMPUS CTF">
           <div class="card-content">
-
             <h3>CYSC CAMPUS CTF</h3>
-
-            <p>
-              Organized at Al Hussein
-              Technical University,
-              focusing on cybersecurity challenges,
-              teamwork, and practical hacking skills.
-            </p>
-
+            <p>Organized at Al Hussein Technical University, focusing on cybersecurity challenges, teamwork, and practical hacking skills.</p>
           </div>
-
         </div>
-
         <div class="card">
-
-          <img
-          src="cryptera-event.jpg"
-          alt="CrypteraNet CTF">
-
+          <img src="cryptera-event.jpg" alt="CrypteraNet CTF">
           <div class="card-content">
-
             <h3>CrypteraNet CTF</h3>
-
-            <p>
-              Organized at Yarmouk University,
-              featuring real-world
-              CTF challenges for
-              cybersecurity enthusiasts.
-            </p>
-
+            <p>Organized at Yarmouk University, featuring real-world CTF challenges for cybersecurity enthusiasts.</p>
           </div>
-
-         </div>
-
+        </div>
       </div>
-
     </div>
-
   </section>
 
   <section id="certifications">
-
     <div class="container">
-
-      <h2 class="section-title">
-        Certifications
-      </h2>
-
+      <h2 class="section-title">Certifications</h2>
       <div class="cards-grid">
-
         <div class="card certification-card">
-
-          <img
-          src="ecir-certificate.jpg"
-          alt="eCIR">
-
+          <img src="ecir-certificate.jpg" alt="eCIR">
           <div class="card-content">
-
             <h3>eCIR Certification</h3>
-
-            <p>
-              Certified in Incident Response
-              and Cybersecurity Investigation
-              with practical experience
-              in threat analysis
-              and digital investigations.
-            </p>
-
+            <p>Certified in Incident Response and Cybersecurity Investigation with practical experience in threat analysis and digital investigations.</p>
           </div>
-
         </div>
-
       </div>
-
     </div>
-
   </section>
 
   <section id="reviews">
-
     <div class="container">
-
-      <h2 class="section-title">
-        Reviews & Feedback
-      </h2>
-
+      <h2 class="section-title">Reviews & Feedback</h2>
       <div class="reviews">
-
         <div class="review-form">
-
-          <input
-          type="text"
-          id="name"
-          placeholder="Your Name (Optional)">
-
+          <input type="text" id="name" placeholder="Your Name (Optional)">
           <select id="rating">
-
-            <option value="">
-              Select Rating
-            </option>
-
+            <option value="">Select Rating</option>
             <option value="⭐">⭐</option>
             <option value="⭐⭐">⭐⭐</option>
             <option value="⭐⭐⭐">⭐⭐⭐</option>
             <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
             <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
-
           </select>
-
-          <textarea
-          id="comment"
-          rows="5"
-          placeholder="Write your feedback..."></textarea>
-
-          <button
-          type="button"
-          id="submitReview">
-
-            Submit Review
-
-          </button>
-
+          <textarea id="comment" rows="5" placeholder="Write your feedback..."></textarea>
+          <button type="button" id="submitReview">Submit Review</button>
         </div>
-
-        <div
-        class="reviews-list"
-        id="reviewsList">
-
-        </div>
-
+        <div class="reviews-list" id="reviewsList"></div>
       </div>
-
     </div>
-
   </section>
 
   <footer>
-
-    © 2026 Ahmed Alwedyan
-    All Rights Reserved
-
+    © 2026 Ahmed Alwedyan All Rights Reserved
   </footer>
 
-  <script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-    // =========================
-    // Reviews Elements
-    // =========================
+    // تم التعديل ببيانات مشروعك الحقيقية والنهائية بنجاح 🛠️
+    const firebaseConfig = {
+      apiKey: "AIzaSyD9yOVnDubPboC5MJ60zpp3-ke-ugrcKUg",
+      authDomain: "my-portfolio-a1457.firebaseapp.com",
+      databaseURL: "https://my-portfolio-a1457-default-rtdb.firebaseio.com",
+      projectId: "my-portfolio-a1457",
+      storageBucket: "my-portfolio-a1457.firebasestorage.app",
+      messagingSenderId: "918735018896",
+      appId: "1:918735018896:web:90d30d5f34e827deba7115",
+      measurementId: "G-0HN9QJ27SF"
+    };
 
+    // تهيئة Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const reviewsRef = ref(db, "reviews");
+
+    // عناصر الصفحة
     const submitBtn = document.getElementById("submitReview");
     const reviewsList = document.getElementById("reviewsList");
 
     // =========================
-    // Load Reviews
+    // جلب التعليقات فوراً وعرضها لكل الزوار في نفس اللحظة
     // =========================
-
-    window.addEventListener("DOMContentLoaded", () => {
-      const savedReviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-      savedReviews.forEach(review => {
-        createReviewCard(
-          review.name,
-          review.rating,
-          review.comment
-        );
-      });
-
-      activate3D();
+    onChildAdded(reviewsRef, (snapshot) => {
+      const data = snapshot.val();
+      createReviewCard(data.name, data.rating, data.comment);
     });
 
     // =========================
-    // Add Review
+    // إرسال تعليق جديد إلى قاعدة البيانات السحابية للكل
     // =========================
-
     submitBtn.addEventListener("click", () => {
       const nameInput = document.getElementById("name").value.trim();
       const name = nameInput === "" ? "Anonymous" : nameInput;
       const rating = document.getElementById("rating").value;
       const comment = document.getElementById("comment").value.trim();
 
-      // Validation
       if(rating === "" || comment === ""){
         alert("Please enter a rating and feedback.");
         return;
       }
 
-      // Create Review Card
-      createReviewCard(name, rating, comment);
-
-      // Save Review to LocalStorage
-      const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-      reviews.push({
+      // رفع البيانات إلى السيرفر ليراها الجميع
+      push(reviewsRef, {
         name: name,
         rating: rating,
         comment: comment
       });
 
-      localStorage.setItem("reviews", JSON.stringify(reviews));
-
-      // Clear Inputs
+      // تفريغ الحقول بعد الإرسال
       document.getElementById("name").value = "";
       document.getElementById("rating").value = "";
       document.getElementById("comment").value = "";
     });
 
-    // =========================
-    // Create Review Card
-    // =========================
-
+    // بناء كارت التعليق ديناميكياً
     function createReviewCard(name, rating, comment){
       const card = document.createElement("div");
       card.className = "review-card";
-
       card.innerHTML = `
         <h4>${name}</h4>
         <div class="stars">${rating}</div>
         <p>${comment}</p>
       `;
-
-      // prepend تضمن ظهور التعليق الجديد في الأعلى دائماً
       reviewsList.prepend(card);
     }
 
-    // =========================
-    // 3D Cards Effect
-    // =========================
-
-    function activate3D(){
+    // تفعيل تأثير الـ 3D للكروت الأساسية عند حركة الماوس
+    window.addEventListener("DOMContentLoaded", () => {
       const cards = document.querySelectorAll(".card");
-
       cards.forEach(card => {
         card.addEventListener("mousemove", e => {
           const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          const rotateX = ((y - centerY) / 20);
-          const rotateY = ((centerX - x) / 20);
-
-          card.style.transform = `
-            perspective(1000px)
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            translateY(-10px)
-          `;
+          const rotateX = ((e.clientY - rect.top - (rect.height / 2)) / 20);
+          const rotateY = (((rect.width / 2) - (e.clientX - rect.left)) / 20);
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
         });
-
         card.addEventListener("mouseleave", () => {
-          card.style.transform = `
-            perspective(1000px)
-            rotateX(0deg)
-            rotateY(0deg)
-            translateY(0px)
-          `;
+          card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
         });
       });
-    }
-
+    });
   </script>
 
 </body>
-
 </html>
